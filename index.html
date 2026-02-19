@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="dark" />
+		<title>Countdown</title>
+
+		<style>
+			:root {
+				--bg: #000;
+				--fg: #fff;
+				--muted: rgba(255, 255, 255, 0.72);
+			}
+
+			html,
+			body {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--fg);
+				display: grid;
+				place-items: center;
+				font-family: "Trajan Pro", "TrajanPro", "Cinzel", "Times New Roman", serif;
+				letter-spacing: 0.06em;
+			}
+
+			.wrap {
+				text-align: center;
+				padding: 24px;
+			}
+
+			#timer {
+				font-size: clamp(28px, 6vw, 72px);
+				font-variant-numeric: tabular-nums;
+				line-height: 1.1;
+			}
+
+			#label {
+				margin-top: 14px;
+				font-size: clamp(12px, 1.4vw, 16px);
+				color: var(--muted);
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+
+			/* Improves rendering on macOS */
+			body {
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main class="wrap" aria-live="polite">
+			<div id="label">SVADBA BUDE O</div>
+			<div id="timer">--:--:--</div>
+		</main>
+
+		<script>
+			// Target: 7 May 2026 14:45 (local time)
+			const target = new Date(2026, 4, 7, 14, 45, 0, 0);
+			const timerEl = document.getElementById("timer");
+
+			function pad2(n) {
+				return String(n).padStart(2, "0");
+			}
+
+			function render() {
+				const now = new Date();
+				let diffMs = target.getTime() - now.getTime();
+
+				if (diffMs <= 0) {
+					timerEl.textContent = "00:00:00";
+					return;
+				}
+
+				const totalSeconds = Math.floor(diffMs / 1000);
+				const days = Math.floor(totalSeconds / 86400);
+				const hours = Math.floor((totalSeconds % 86400) / 3600);
+				const minutes = Math.floor((totalSeconds % 3600) / 60);
+				const seconds = totalSeconds % 60;
+
+				timerEl.textContent =
+					days > 0
+						? `${days}D ${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`
+						: `${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
+			}
+
+			render();
+			setInterval(render, 250);
+		</script>
+	</body>
+</html>
