@@ -62,8 +62,8 @@
 		</main>
 
 		<script>
-			// Target: 7 May 2026 14:45 (local time)
-			const target = new Date(2026, 4, 7, 14, 45, 0, 0);
+			// 7 May 2026 14:45 in Europe/Bratislava
+			const target = new Date(Date.UTC(2026, 4, 7, 12, 45, 0, 0));
 			const timerEl = document.getElementById("timer");
 
 			function pad2(n) {
@@ -71,8 +71,7 @@
 			}
 
 			function render() {
-				const now = new Date();
-				let diffMs = target.getTime() - now.getTime();
+				const diffMs = target - new Date();
 
 				if (diffMs <= 0) {
 					timerEl.textContent = "00:00:00";
