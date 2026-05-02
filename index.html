@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="sk">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,26 +11,26 @@
 				--bg: #000;
 				--fg: #fff;
 				--muted: rgba(255, 255, 255, 0.72);
-			}
-
-			html,
-			body {
-				height: 100%;
+				--border: rgba(255, 255, 255, 0.2);
 			}
 
 			body {
 				margin: 0;
 				background: var(--bg);
 				color: var(--fg);
-				display: grid;
-				place-items: center;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 				font-family: "Trajan Pro", "TrajanPro", "Cinzel", "Times New Roman", serif;
 				letter-spacing: 0.06em;
+				padding: 40px 20px;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
 			}
 
 			.wrap {
 				text-align: center;
-				padding: 24px;
+				margin-bottom: 60px;
 			}
 
 			#timer {
@@ -47,10 +47,40 @@
 				text-transform: uppercase;
 			}
 
-			/* Improves rendering on macOS */
-			body {
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
+			.tables-container {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 30px;
+				width: 100%;
+				max-width: 1200px;
+			}
+
+			.table-card {
+				border: 1px solid var(--border);
+				padding: 20px;
+				border-radius: 8px;
+				text-align: center;
+				background: rgba(255, 255, 255, 0.03);
+			}
+
+			.table-title {
+				font-size: 1.25rem;
+				font-weight: bold;
+				margin-bottom: 15px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid var(--border);
+				text-transform: uppercase;
+			}
+
+			.table-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.table-list li {
+				padding: 6px 0;
+				color: var(--muted);
 			}
 		</style>
 	</head>
@@ -60,6 +90,143 @@
 			<div id="label">SVADBA BUDE O</div>
 			<div id="timer">--:--:--</div>
 		</main>
+
+		<div class="tables-container">
+			<div class="table-card">
+				<div class="table-title">Stôl č.1</div>
+				<ul class="table-list">
+					<li>Marinka Mikita</li>
+					<li>Robko Mikita</li>
+					<li>Stano Kurilak</li>
+					<li>Zuzka Kováčová</li>
+					<li>Tino Kováč</li>
+					<li>Larka Kováčová</li>
+					<li>Kubko Kováč</li>
+					<li>Slavka Hodermarská</li>
+					<li>Rusi</li>
+					<li>Miška Petróci</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.2</div>
+				<ul class="table-list">
+					<li>Stanka Kušnírová</li>
+					<li>Erik Kušnír</li>
+					<li>Renátka Petróciová</li>
+					<li>Palko Petróci</li>
+					<li>Janette Šofránková</li>
+					<li>Ferko Šofránko</li>
+					<li>Aďka Trejbalová</li>
+					<li>Julka Ščerbáková</li>
+					<li>Norika Dzurčaninová</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.3</div>
+				<ul class="table-list">
+					<li>Babka Marta</li>
+					<li>Dedko Palo</li>
+					<li>Babka Betka</li>
+					<li>Babka Gizka</li>
+					<li>Dedko Milan</li>
+					<li>Marika Knoblich</li>
+					<li>Belo Knoblich</li>
+					<li>Babka Marta</li>
+					<li>Dedko Ján</li>
+					<li>Farár Marek</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.4</div>
+				<ul class="table-list">
+					<li>Baška Iannaccone</li>
+					<li>Tonko Iannaccone</li>
+					<li>Ágnes Kaszonyi</li>
+					<li>Stano Szabo</li>
+					<li>Vikči Szabo</li>
+					<li>Stanko Szabo</li>
+					<li>Danka De Furia</li>
+					<li>Maťo Pastor</li>
+					<li>Lenka Fedorková</li>
+					<li>Barborka Fedorková</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.5</div>
+				<ul class="table-list">
+					<li>Jarka Straková</li>
+					<li>Ďuro Jurčina</li>
+					<li>Janko Mikita</li>
+					<li>Veronika Mikitová</li>
+					<li>Peťa Balogová</li>
+					<li>Tommy Balog</li>
+					<li>Ester Balogová</li>
+					<li>Teo Balog</li>
+					<li>Marianna Vitková</li>
+					<li>Robo Erdös</li>
+					<li>Adamko Erdös</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.6</div>
+				<ul class="table-list">
+					<li>Miro Belohorský</li>
+					<li>Zuzka Belohorská</li>
+					<li>Lili Belohorská</li>
+					<li>Liam Belohorský</li>
+					<li>Leo Belohorský</li>
+					<li>Dominika Verešpejová</li>
+					<li>Fero Verešpej</li>
+					<li>Anička Verešpejová</li>
+					<li>Filipko Verešpej</li>
+					<li>Rišo Verešpej</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.7</div>
+				<ul class="table-list">
+					<li>Martuška Stojanov</li>
+					<li>George Stojanov</li>
+					<li>Matúš Knoblich</li>
+					<li>Sofia Knoblich</li>
+					<li>Miško Imriš</li>
+					<li>Janko Mikita</li>
+					<li>Maťo Knut</li>
+					<li>Katka Knutová</li>
+					<li>Janka Sabová</li>
+					<li>Dávid Luternačík</li>
+					<li>Peťa Přiběnská</li>
+					<li>Maťo Kováčik</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.8</div>
+				<ul class="table-list">
+					<li>Viktor Belohorský</li>
+					<li>Lenka Belohorská</li>
+					<li>Janka Bányászová</li>
+					<li>Dominik Bányász</li>
+					<li>Kristián Bányász</li>
+					<li>Klára Bányászová</li>
+					<li>Martin Jadloš</li>
+					<li>Mišo Shejbal</li>
+					<li>Mária Shejbalová</li>
+					<li>Mária Shejbalová</li>
+				</ul>
+			</div>
+			<div class="table-card">
+				<div class="table-title">Stôl č.9</div>
+				<ul class="table-list">
+					<li>Janka Przybylski</li>
+					<li>Tomek Przybylski</li>
+					<li>Thomas Przybylski</li>
+					<li>Peťo Mašat</li>
+					<li>Marcela Mašatová</li>
+					<li>Laci Palko</li>
+					<li>Maja Palková</li>
+				</ul>
+			</div>
+		</div>
 
 		<script>
 			// 7 May 2026 14:45 in Europe/Bratislava
